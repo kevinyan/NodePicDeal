@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title HiLogo
+
+    meta(name="viewport",content="text/html; charset=utf-8")
+    meta(name="viewport",content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1")
+    link(type="text/css",rel="stylesheet",href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css")
+    link(type="text/css",rel="stylesheet",href="./stylesheets/style.css")
+    link(rel="shortcut icon" href="./images/logo.png")
+
+  body
+
+block content
+            
+    div.thumbnail.content
+        div
+            img.demo(src="./images/bullet_add.png", alt="")
+            input(type='file', name='files',id='upimage')
+
+        div.caption
+            
+            input.BankName.form-control(type="text" max-length="10" placeholder="请严格输入银行名称")
+            br
+            p  
+                a#up.btn.btn-primary.btn-block.disabled(href='javascript:void(0)') 提交
+
+            h3 
+            p.alert  
+
+        img.logo(src="./images/logo02.png", alt="")
+       
+
+    script(src='./javascripts/bower_components/zepto/zepto.min.js')
+    script(src='./javascripts/index.js')
