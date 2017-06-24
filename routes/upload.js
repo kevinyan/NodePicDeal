@@ -72,7 +72,7 @@ module.exports = {
                 }
 
                 request.post({
-                        url: 'http://cp01-rdqa-dev307.cp01.baidu.com:8765/upload_image',
+                        url: 'http://10.95.198.71:8765/upload_image',
                         form: {
                             image_data: base64image,
                             name: files.name,
