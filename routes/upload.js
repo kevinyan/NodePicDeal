@@ -2,6 +2,8 @@ var formidable = require('formidable');
 var fs = require("fs");
 var path = require("path");
 var request = require('request');
+var gm = require('gm').subClass({ imageMagick: true });
+
 
 module.exports = {
     'uploadimage': function(req, res, next) {
@@ -116,6 +118,90 @@ module.exports = {
 
         });
 
+    },
+    'uploadhdimage': function(req, res, next) {
 
+        // 缓存到temp目录下
+        var form = new formidable.IncomingForm();
+        form.uploadDir = './temp';
+
+
+        var selection;
+        form.on('field', function(name, file) {
+            selection = file;
+        });
+
+        form.parse(req, function(err, fields, files) {
+            var STATUS = 0;
+            var files = files.file;
+
+            if (err) {
+                STATUS = 5004
+
+            } else {
+
+               
+                fs.createReadStream('./' + files.path).pipe(fs.createWriteStream('./hdbuild/' + files.name));
+                var filePath = path.join(__dirname, '../hdbuild/');
+                console.log(filePath+files.name)
+
+                if (selection == '3x') {
+
+                    gm(filePath+files.name)
+                    .resize(240, 240)
+                        .noProfile()
+                        .write(filePath + '2x_' + files.name, function(err) {
+                            if (!err) console.log('done');
+                        })
+                    // .resize(240, 240)
+                    //     .noProfile()
+                    //     .write(path + '../hdbuild/1x' + files.name, function(err) {
+                    //         if (!err) console.log('done');
+                    //     })
+
+                } else if (selection == '2x') {
+                    gm(file)
+                    .resize(240, 240)
+                        .noProfile()
+                        .write(filePath + '2x_' + files.name, function(err) {
+                            if (!err) console.log('done');
+                        })
+
+                } else {
+
+
+                }
+
+
+
+
+
+            }
+
+            switch (STATUS) {
+                case 5004:
+                    res.json({
+                        'res': '5004',
+                        'content': 'error'
+                    });
+                    break;
+
+                case 5005:
+                    res.json({
+                        'res': '5005',
+                        'content': '图片已经存在'
+                    });
+                    break;
+
+                default:
+                    res.json({
+                        'res': '0',
+                        'content': 'OK'
+                    });
+
+
+            }
+
+        })
     }
 }

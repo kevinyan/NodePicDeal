@@ -25,8 +25,14 @@ router.get('/hd', function(req, res, next) {
 });
 
 
+
+
 router.post('/upimg', function(req, res, next) {
     uploadimg.uploadimage(req, res, next);
+});
+
+router.post('/uphdimage', function(req, res, next) {
+    uploadimg.uploadhdimage(req, res, next);
 });
 
 
