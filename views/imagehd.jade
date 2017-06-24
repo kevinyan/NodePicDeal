@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title {{title}}
+
+    meta(name="viewport",content="text/html; charset=utf-8")
+    meta(name="viewport",content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1")
+    link(type="text/css",rel="stylesheet",href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css")
+    link(rel="shortcut icon" href="./images/logo.png")
+
+  body
+    h1 欢迎来到图片上传平台
+
+    fieldset
+        image(class="demo")
+        lable(for="img") 上传图片
+        input(type='file', name='files',id='upimage')
+
+
+    fieldset
+        lable(for='label') 选择类型
+            <input name="Fruit" type="radio" value="1x" checked/> 1x
+            <input name="Fruit" type="radio" value="2x" /> 2x
+            <input name="Fruit" type="radio" value="3x" /> 3x
+
+    button(id='submit') 提交
+    script(src='./javascripts/bower_components/zepto/zepto.min.js')
+    script(src='./javascripts/hdimage.js')

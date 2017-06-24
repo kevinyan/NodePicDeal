@@ -8,10 +8,24 @@ cd fis-receiver
 nohup ./main & # 默认端口8527 可自定义
 ```
 
-### 上传后启动服务
+### 代码挑食
 ```
 //linux
 DEBUG=myapp & npm start
 //windows
 set DEBUG=myapp & npm start
 ```
+
+
+### 服务器启动服务
+```
+forever start ./bin/www
+forever list
+forever stopall
+```
+
+### 上传
+
+
+
+
