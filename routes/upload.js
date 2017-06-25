@@ -140,30 +140,42 @@ module.exports = {
 
             } else {
 
-               
-                fs.createReadStream('./' + files.path).pipe(fs.createWriteStream('./hdbuild/' + files.name));
+
+                // 同名先移过去
+                var fcrs = fs.createReadStream('./' + files.path);
+                fcrs.pipe(fs.createWriteStream('./hdbuild/' + selection + '_' + files.name))
+                fcrs.pipe(fs.createWriteStream('./hdbuild/' + files.name))
+
                 var filePath = path.join(__dirname, '../hdbuild/');
-                console.log(filePath+files.name)
 
                 if (selection == '3x') {
 
-                    gm(filePath+files.name)
-                    .resize(240, 240)
+
+                    gm(filePath + files.name)
+                        .resize(66, 66, '%')
                         .noProfile()
                         .write(filePath + '2x_' + files.name, function(err) {
-                            if (!err) console.log('done');
+                            if (!err) {
+                                console.log('done')
+                                gm(filePath + files.name)
+                                    .resize(33, 33, '%')
+                                    .noProfile()
+                                    .write(filePath + '1x_' + files.name, function(err) {
+                                        if (!err) {
+                                            console.log('done2')
+                                        }
+                                    })
+                            }else{
+                                console.log(err)
+                            }
+
                         })
-                    // .resize(240, 240)
-                    //     .noProfile()
-                    //     .write(path + '../hdbuild/1x' + files.name, function(err) {
-                    //         if (!err) console.log('done');
-                    //     })
 
                 } else if (selection == '2x') {
-                    gm(file)
-                    .resize(240, 240)
+                    gm(filePath + files.name)
+                        .resize(50, 50, '%')
                         .noProfile()
-                        .write(filePath + '2x_' + files.name, function(err) {
+                        .write(filePath + '1x_' + files.name, function(err) {
                             if (!err) console.log('done');
                         })
 

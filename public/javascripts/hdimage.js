@@ -12,7 +12,7 @@ $('#upimage').on('change', function(event) {
 
 $('#submit').on('click', function() {
     // fd.append('BankName', $('input.BankName').val());
-    fd.append('hdval', $('input[name=Fruit]').val());
+    fd.append('hdval', $('input[name=Fruit]:checked').val());
 
     $.ajax({
         url: "/uphdimage",
