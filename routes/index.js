@@ -21,7 +21,7 @@ router.get('/upload', function(req, res, next) {
 
 
 router.get('/hd', function(req, res, next) {
-    res.render('imagehd', { title: '高清图片处理系统' });
+    res.render('imagehd', { title: 'NPD' });
 });
 
 
