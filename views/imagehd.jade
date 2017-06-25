@@ -5,24 +5,31 @@ html
 
     meta(name="viewport",content="text/html; charset=utf-8")
     meta(name="viewport",content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1")
-    link(type="text/css",rel="stylesheet",href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css")
+    link(type="text/css",rel="stylesheet",href="./stylesheets/bootstrap.min.css")
+    link(type="text/css",rel="stylesheet",href="./stylesheets/hd.css")
     link(rel="shortcut icon" href="./images/logo.png")
 
-  body
-    h1 欢迎来到图片上传平台
 
-    fieldset
-        image(class="demo")
-        lable(for="img") 上传图片
+  body
+    h1
+        span.glyphicon.glyphicon-sunglasses
+         HD处理平台
+
+    fieldset.thumbnail
         input(type='file', name='files',id='upimage')
 
 
-    fieldset
-        lable(for='label') 选择类型
-            <input name="Fruit" type="radio" value="3x" checked/> 3x
-            <input name="Fruit" type="radio" value="2x" /> 2x
-            <input name="Fruit" type="radio" value="1x" /> 1x
+    fieldset.thumbnail
+            h5.glyphicon.glyphicon-tasks 选择类型
+            label 3x
+                input(name="Fruit",type="radio",value="3x",checked)
+            label 2x
+                input(name="Fruit",type="radio",value="2x")
+            label 1x
+                input(name="Fruit",type="radio",value="1x")
 
-    button(id='submit') 提交
+            
+
+    button.btn.btn-primary.btn-lg.btn-block(id='submit') 上传
     script(src='./javascripts/bower_components/zepto/zepto.min.js')
     script(src='./javascripts/hdimage.js')

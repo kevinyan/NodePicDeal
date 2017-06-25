@@ -1,0 +1,15 @@
+body{
+	text-align: center;
+	padding: 15px;
+}
+
+h5{
+	display: block !important;
+}
+
+label{
+	font-size: 20px;
+	display: inline-block;
+    width: 85px;
+    line-height: 100px;
+}
