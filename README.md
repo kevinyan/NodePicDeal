@@ -25,7 +25,7 @@ forever stopall
 ```
 
 ### 上传
-
+fis3 release kevin
 
 
 

@@ -134,17 +134,36 @@ module.exports = {
         form.parse(req, function(err, fields, files) {
             var STATUS = 0;
             var files = files.file;
+            var support = ['.png', '.jpg'];
 
             if (err) {
                 STATUS = 5004
 
             } else {
+                
+                function dealname(sele) {
+                    var newName = files.name;
+                    support.forEach(function(ele, idx) {
+                        if (files.name.indexOf(ele) > 0) {
+                            newName = files.name.split(ele)[0] + '_' + sele + ele;
+
+                        }
+                    })
+
+                    return newName;
+                }
 
 
                 // 同名先移过去
                 var fcrs = fs.createReadStream('./' + files.path);
-                fcrs.pipe(fs.createWriteStream('./hdbuild/' + selection + '_' + files.name))
+                fcrs.pipe(fs.createWriteStream('./hdbuild/' + dealname(selection)))
                 fcrs.pipe(fs.createWriteStream('./hdbuild/' + files.name))
+
+
+
+
+
+
 
                 var filePath = path.join(__dirname, '../hdbuild/');
 
@@ -154,18 +173,18 @@ module.exports = {
                     gm(filePath + files.name)
                         .resize(66, 66, '%')
                         .noProfile()
-                        .write(filePath + '2x_' + files.name, function(err) {
+                        .write(filePath + dealname('2x'), function(err) {
                             if (!err) {
                                 console.log('done')
                                 gm(filePath + files.name)
                                     .resize(33, 33, '%')
                                     .noProfile()
-                                    .write(filePath + '1x_' + files.name, function(err) {
+                                    .write(filePath + dealname('1x'), function(err) {
                                         if (!err) {
                                             console.log('done2')
                                         }
                                     })
-                            }else{
+                            } else {
                                 console.log(err)
                             }
 
@@ -175,7 +194,7 @@ module.exports = {
                     gm(filePath + files.name)
                         .resize(50, 50, '%')
                         .noProfile()
-                        .write(filePath + '1x_' + files.name, function(err) {
+                        .write(filePath + dealname('1x'), function(err) {
                             if (!err) console.log('done');
                         })
 
