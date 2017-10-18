@@ -74,7 +74,7 @@ module.exports = {
                 }
 
                 request.post({
-                        url: 'http://10.95.198.71:8765/upload_image',
+                        url: 'http://st01-rdqa-dev379-zhangtao23.epc.baidu.com:8765/upload_image',
                         form: {
                             image_data: base64image,
                             name: files.name,

@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px 0;
+}
+
+
+.content {
+    text-align: center;
+}
+
+
+button,
+.button {
+    margin-bottom: 20px;
+    display: inline-block;
+    -webkit-appearance: none;
+    border: 0;
+    background: #6492e3;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    text-shadow: none;
+    height: 4.4rem;
+    line-height: 4.4rem;
+    font-size: 1.6rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0 2.4rem;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+}

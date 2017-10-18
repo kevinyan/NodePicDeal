@@ -1,0 +1,44 @@
+body {
+    text-align: center;
+    padding-top: 50px;
+}
+
+body #submit {
+    width: 80%;
+}
+
+article {
+    padding-bottom: 20px
+}
+
+input[type='text'] {
+    width: 80%;
+    height: 50px;
+    line-height: 50px;
+}
+
+#inputer {
+    margin-bottom: 20px;
+}
+
+.hrizon {
+    display: flex;
+    display: -webkit-flex;
+    padding: 0 20px;
+}
+
+.hrizon .form-group {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    flex: 1;
+    -webkit-flex: 1;
+}
+
+#fiddlerresult {
+    padding: 0;
+}
+
+#fiddlerresult li {
+    list-style-type: none;
+}

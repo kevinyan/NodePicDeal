@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+header,
+footer {
+    height: 50px;
+    background-color: yellow;
+    width: 100%;
+}
+
+header {
+    background: url('/images/paypal_title.png') center no-repeat;
+    background-size: 100% 100%;
+}
+
+footer{
+	border-top:1px solid #eaeaea;
+	background: url('/images/paypal_footer.png') center no-repeat;
+    background-size: 100% 100%;
+}
+
+iframe {
+    border: 0;
+    min-height: 300px;
+    height: 400px;
+}

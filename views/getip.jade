@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title #{title}
+
+    meta(name="viewport",content="text/html; charset=utf-8")
+    meta(name="viewport",content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1")
+    link(type="text/css",rel="stylesheet",href="./stylesheets/bootstrap.min.css")
+    link(type="text/css",rel="stylesheet",href="./stylesheets/getip.css")
+
+
+  body
+    article
+        input#inputer(type='text',placeholder='输入Ip 或 机器名称')
+        a#submit.btn.btn-primary(src='javascript:void(0)') 点我一下！
+
+
+    article.hrizon
+        .form-group
+            h2 常用配置
+            - var items = ["www.baifubao.com","wallet.baidu.com","m.baifubao.com","baifubao.baidu.com","life.baifubao.com","zhifu.baidu.com","qianbao.baidu.com"]
+
+                each item in items
+                    .checkbox
+                        label
+                            input.hosts(type='checkbox',value= item,checked)
+                            span #{item} 
+
+            h2 QA pass
+            .checkbox
+                label
+                    input.passport(type='checkbox',checked)
+                    span QApass
+        .form-group
+            h2 查询结果
+            #getip
+
+        .form-group
+            h2 fiddler配置
+            ul#fiddlerresult
+
+        .form-group
+            h2 常用机器
+            - var obj = { '基准环境': '10.95.40.58', '打包环境': '10.95.118.171','21环境':'10.95.126.147','预上线':'10.57.242.58'}       
+            ul
+               each value, key in obj
+                    li #{key}: #{value}
+
+    
+
+    script(src='./javascripts/bower_components/zepto/zepto.min.js')
+    script(src='./javascripts/getipjs.js')
+
