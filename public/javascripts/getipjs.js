@@ -46,8 +46,8 @@ $(function() {
         var pass = $('.passport');
         pass.forEach(function(ele, idx) {
             if (ele.checked) {
-                _html += '<li>10.94.19.13 wappass.qatest.baidu.com</li>';
-                _html += '<li>10.94.19.13 passport.qatest.baidu.com</li>';
+                _html += '<li>8888.94.19.13 wappass.qatest.com</li>';
+                _html += '<li>8888.94.19.13 passport.qatest.com</li>';
             }
         })
 
